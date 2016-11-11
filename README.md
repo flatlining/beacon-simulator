@@ -3,7 +3,7 @@
 ### Run
 
 ```bash
-docker run --net=host -e BEACON="$(cat beacon-definition.js)" --rm -i -t rpi-node-beacon
+docker run --net=host --rm -e BEACON="$(cat beacon-definition.js)" flatlining/rpi-node-beacon
 ```
 
 Where ```beacon-definition.js``` can be an Eddystone or IBeacon.
