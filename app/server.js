@@ -12,6 +12,12 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 io.on('connection', function(socket) {
     socket.on('eddystone-url', function(data) {
         console.log('eddystone-url: ' + JSON.stringify(data));
+
+        var bleno = require('bleno');
+        var eddystoneBeacon = require('eddystone-beacon');
+
+        bleno.stopAdvertising();
+        eddystoneBeacon.advertiseUrl(data.url, [data.options]);
     });
 });
 

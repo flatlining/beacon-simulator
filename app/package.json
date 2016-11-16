@@ -4,6 +4,7 @@
   "description": "A beacon app for the Raspberry Pi that supports Eddystone and iBeacon",
   "dependencies": {
     "bootstrap": "3.3.7",
+    "eddystone-beacon": "^1.0.7",
     "express": "4.14.0",
     "jquery": "3.1.1",
     "socket.io": "1.5.1"
