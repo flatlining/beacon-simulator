@@ -1,7 +1,7 @@
 {
-  "name": "node-beacon",
+  "name": "rpi-node-beacon",
   "version": "0.0.1",
-  "description": "A node beacon app",
+  "description": "A beacon app for the Raspberry Pi that supports Eddystone and iBeacon",
   "dependencies": {
     "bootstrap": "3.3.7",
     "express": "4.14.0",
