@@ -1,10 +1,10 @@
 {
-  "name": "rpi-node-beacon",
+  "name": "rpi-node-beacon-simulator",
   "version": "0.0.1",
-  "description": "A beacon app for the Raspberry Pi that supports Eddystone and iBeacon",
+  "description": "A beacon simulator for the Raspberry Pi that supports Eddystone and iBeacon",
   "dependencies": {
     "bootstrap": "3.3.7",
-    "eddystone-beacon": "^1.0.7",
+    "eddystone-beacon": "1.0.7",
     "express": "4.14.0",
     "jquery": "3.1.1",
     "socket.io": "1.5.1"

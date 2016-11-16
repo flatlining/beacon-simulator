@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>rPi Beacon</title>
+    <title>rPi Beacon Simulator</title>
 
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -96,7 +96,7 @@
                 tlmCount: parseInt($('#eddystone-tlmCount').val() || 1),
                 tlmPeriod: parseInt($('#eddystone-tlmPeriod').val() || 0)
             };
-            var u = $('#eddystone-url').val() || "http://google.com";
+            var u = $('#eddystone-url').val() || "https://google.com";
             socket.emit('eddystone-url', {
                 options: o,
                 url: u
