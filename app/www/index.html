@@ -43,26 +43,26 @@
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <span class="input-group-addon" id="eddystone-name">Name</span>
-                    <input type="text" class="form-control" placeholder="BeaconName" aria-describedby="eddystone-name">
+                    <span class="input-group-addon" id="eddystone-nameLabel">Name</span>
+                    <input type="text" class="form-control" placeholder="EddystoneURL" id="eddystone-name" aria-describedby="eddystone-nameLabel">
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <span class="input-group-addon" id="eddystone-txPowerLevel">TX Power Level</span>
-                    <input type="number" min="-100" max="20" class="form-control" placeholder="-21" aria-describedby="eddystone-txPowerLevel">
+                    <span class="input-group-addon" id="eddystone-txPowerLevelLabel">TX Power Level</span>
+                    <input type="number" min="-100" max="20" class="form-control" placeholder="-21" id="eddystone-txPowerLevel" aria-describedby="eddystone-txPowerLevelLabel">
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <span class="input-group-addon" id="eddystone-tlmCount">TLM frames</span>
-                    <input type="number" class="form-control" placeholder="1" aria-describedby="eddystone-tlmCount">
+                    <span class="input-group-addon" id="eddystone-tlmCountLabel">TLM frames</span>
+                    <input type="number" class="form-control" placeholder="1" id="eddystone-tlmCount" aria-describedby="eddystone-tlmCountLabel">
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <span class="input-group-addon" id="eddystone-tlmPeriod">TLM Period</span>
-                    <input type="number" class="form-control" placeholder="0" aria-describedby="eddystone-tlmPeriod">
+                    <span class="input-group-addon" id="eddystone-tlmPeriodLabel">TLM Period</span>
+                    <input type="number" class="form-control" placeholder="0" id="eddystone-tlmPeriod" aria-describedby="eddystone-tlmPeriodLabel">
                 </div>
             </div>
             <div>
@@ -70,8 +70,8 @@
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <span class="input-group-addon" id="eddystone-url">Name</span>
-                    <input type="url" class="form-control" placeholder="https://google.com/" aria-describedby="eddystone-url">
+                    <span class="input-group-addon" id="eddystone-urlLabel">Name</span>
+                    <input type="url" class="form-control" placeholder="https://google.com/" id="eddystone-url" aria-describedby="eddystone-urlLabel">
                 </div>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
@@ -90,12 +90,18 @@
     <script>
         var socket = io();
         $('form').submit(function() {
-            socket.emit('chat message', $('#m').val());
-            $('#m').val('');
+            var o = {
+                name: $('#eddystone-name').val() || "EddystoneURL",
+                txPowerLevel: parseInt($('#eddystone-txPowerLevel').val() || -21),
+                tlmCount: parseInt($('#eddystone-tlmCount').val() || 1),
+                tlmPeriod: parseInt($('#eddystone-tlmPeriod').val() || 0)
+            };
+            var u = $('#eddystone-url').val() || "http://google.com";
+            socket.emit('eddystone-url', {
+                options: o,
+                url: u
+            });
             return false;
-        });
-        socket.on('chat message', function(msg) {
-            $('#messages').append($('<li>').text(msg));
         });
     </script>
 </body>

@@ -9,13 +9,12 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); /
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
+io.on('connection', function(socket) {
+    socket.on('eddystone-url', function(data) {
+        console.log('eddystone-url: ' + JSON.stringify(data));
+    });
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+http.listen(3000, function() {
+    console.log('listening on *:3000');
 });
