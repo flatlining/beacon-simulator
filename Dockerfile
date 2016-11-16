@@ -7,11 +7,11 @@ RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get -y install bluetooth bluez libbluetooth-dev libudev-dev
 
-RUN apt-get -y install usbutils nano
-
 WORKDIR /app/
 
-EXPOSE 3000
-VOLUME ["/app/"]
+COPY . /app/
+RUN npm install
 
-#CMD [ "bash" ]
+EXPOSE 3000
+
+CMD [ "npm", "start" ]

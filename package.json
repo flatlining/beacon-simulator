@@ -1,5 +1,5 @@
 {
-  "name": "rpi-node-beacon-simulator",
+  "name": "rpi-beacon-simulator",
   "version": "0.0.1",
   "description": "A beacon simulator for the Raspberry Pi that supports Eddystone and iBeacon",
   "dependencies": {
