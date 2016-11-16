@@ -1,8 +1,9 @@
 {
   "name": "rpi-beacon-simulator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A beacon simulator for the Raspberry Pi that supports Eddystone and iBeacon",
   "dependencies": {
+    "bleacon": "0.5.1",
     "bootstrap": "3.3.7",
     "eddystone-beacon": "1.0.7",
     "express": "4.14.0",

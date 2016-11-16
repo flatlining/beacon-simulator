@@ -12,6 +12,9 @@ app.get('/eddystone-url', function(req, res) {
 app.get('/eddystone-uid', function(req, res) {
     res.sendFile(__dirname + '/www/eddystone-uid.html');
 });
+app.get('/ibeacon', function(req, res) {
+    res.sendFile(__dirname + '/www/ibeacon.html');
+});
 
 // http://stackoverflow.com/a/35580597/3806928
 //app.use('/', express.static(__dirname + '/www')); // redirect root
@@ -24,9 +27,9 @@ io.on('connection', function(socket) {
         console.log('eddystone-url: ' + JSON.stringify(data));
 
         var bleno = require('bleno');
-        var eddystoneBeacon = require('eddystone-beacon');
-
         bleno.stopAdvertising();
+
+        var eddystoneBeacon = require('eddystone-beacon');
         eddystoneBeacon.advertiseUrl(data.url, [data.options]);
     });
 
@@ -34,10 +37,20 @@ io.on('connection', function(socket) {
         console.log('eddystone-uid: ' + JSON.stringify(data));
 
         var bleno = require('bleno');
-        var eddystoneBeacon = require('eddystone-beacon');
-
         bleno.stopAdvertising();
+
+        var eddystoneBeacon = require('eddystone-beacon');
         eddystoneBeacon.advertiseUid(data.namespaceId, data.instanceId, [data.options]);
+    });
+
+    socket.on('ibeacon', function(data) {
+        console.log('ibeacon: ' + JSON.stringify(data));
+
+        var bleno = require('bleno');
+        bleno.stopAdvertising();
+
+        var bleacon = require('bleacon');
+        bleacon.startAdvertising(data.uuid, data.major, data.minor, data.measuredPower);
     });
 });
 
