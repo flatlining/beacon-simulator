@@ -36,8 +36,8 @@
             <a class="navbar-brand" href="#">Beacon Simulator</a>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Eddystone-URL</a></li>
-                    <li><a href="/eddystone-uid">Eddystone-UID</a></li>
+                    <li><a href="/">Eddystone-URL</a></li>
+                    <li class="active"><a href="/eddystone-uid">Eddystone-UID</a></li>
                 </ul>
             </div>
         </div>
@@ -82,8 +82,14 @@
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <span class="input-group-addon" id="eddystone-urlLabel">Name</span>
-                    <input type="url" class="form-control" placeholder="https://google.com/" id="eddystone-url" aria-describedby="eddystone-urlLabel">
+                    <span class="input-group-addon" id="eddystone-namespaceIdLabel">Namespace Id</span>
+                    <input type="text" class="form-control" placeholder="00010203040506070809" id="eddystone-namespaceId" aria-describedby="eddystone-namespaceIdLabel">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon" id="eddystone-instanceIdLabel">Instance Id</span>
+                    <input type="url" class="form-control" placeholder="aabbccddeeff" id="eddystone-instanceId" aria-describedby="eddystone-instanceIdLabel">
                 </div>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
@@ -108,10 +114,12 @@
                 tlmCount: parseInt($('#eddystone-tlmCount').val() || 1),
                 tlmPeriod: parseInt($('#eddystone-tlmPeriod').val() || 0)
             };
-            var u = $('#eddystone-url').val() || "https://google.com";
-            socket.emit('eddystone-url', {
+            var nId = $('#eddystone-namespaceId').val() || "00010203040506070809";
+            var iId = $('#eddystone-instanceId').val() || "aabbccddeeff";
+            socket.emit('eddystone-uid', {
                 options: o,
-                url: u
+                namespaceId: nId,
+                instanceId: iId
             });
             return false;
         });

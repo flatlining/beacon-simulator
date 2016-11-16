@@ -3,8 +3,11 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/www/eddystone-url.html');
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/www/eddystone-url.html');
+});
+app.get('/eddystone-uid', function(req, res) {
+    res.sendFile(__dirname + '/www/eddystone-uid.html');
 });
 
 // http://stackoverflow.com/a/35580597/3806928
@@ -22,6 +25,16 @@ io.on('connection', function(socket) {
 
         bleno.stopAdvertising();
         eddystoneBeacon.advertiseUrl(data.url, [data.options]);
+    });
+
+    socket.on('eddystone-uid', function(data) {
+        console.log('eddystone-uid: ' + JSON.stringify(data));
+
+        var bleno = require('bleno');
+        var eddystoneBeacon = require('eddystone-beacon');
+
+        bleno.stopAdvertising();
+        eddystoneBeacon.advertiseUid(data.namespaceId, data.instanceId, [data.options]);
     });
 });
 
