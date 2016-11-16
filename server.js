@@ -4,6 +4,9 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 app.get('/', function(req, res) {
+    res.redirect('/eddystone-url');
+});
+app.get('/eddystone-url', function(req, res) {
     res.sendFile(__dirname + '/www/eddystone-url.html');
 });
 app.get('/eddystone-uid', function(req, res) {

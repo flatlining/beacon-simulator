@@ -33,10 +33,10 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Beacon Simulator</a>
+            <a class="navbar-brand" href="/">Beacon Simulator</a>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Eddystone-URL</a></li>
+                    <li><a href="/eddystone-url">Eddystone-URL</a></li>
                     <li class="active"><a href="/eddystone-uid">Eddystone-UID</a></li>
                 </ul>
             </div>
@@ -46,7 +46,7 @@
     <div class="container">
 
         <div class="page-header">
-            <h1>Eddystone <small>URL</small></h1>
+            <h1>Eddystone <small>UID</small></h1>
         </div>
 
         <form>
@@ -56,7 +56,7 @@
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon" id="eddystone-nameLabel">Name</span>
-                    <input type="text" class="form-control" placeholder="EddystoneURL" id="eddystone-name" aria-describedby="eddystone-nameLabel">
+                    <input type="text" class="form-control" placeholder="EddystoneUID" id="eddystone-name" aria-describedby="eddystone-nameLabel">
                 </div>
             </div>
             <div class="form-group">
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div>
-                <h2>URL</h2>
+                <h2>UID</h2>
             </div>
             <div class="form-group">
                 <div class="input-group">
@@ -109,7 +109,7 @@
         var socket = io();
         $('form').submit(function() {
             var o = {
-                name: $('#eddystone-name').val() || "EddystoneURL",
+                name: $('#eddystone-name').val() || "EddystoneUID",
                 txPowerLevel: parseInt($('#eddystone-txPowerLevel').val() || -21),
                 tlmCount: parseInt($('#eddystone-tlmCount').val() || 1),
                 tlmPeriod: parseInt($('#eddystone-tlmPeriod').val() || 0)
