@@ -15,6 +15,9 @@ app.get('/eddystone-uid', function(req, res) {
 app.get('/ibeacon', function(req, res) {
     res.sendFile(__dirname + '/www/ibeacon.html');
 });
+app.get('/favicon.png', function(req, res) {
+    res.sendFile(__dirname + '/www/favicon.png');
+});
 
 // http://stackoverflow.com/a/35580597/3806928
 //app.use('/', express.static(__dirname + '/www')); // redirect root
