@@ -1,6 +1,6 @@
 # Beacon Simulator
 
-Node Eddystone and iBeacon simulator for Raspberry Pi
+A beacon simulator for the Raspberry Pi that supports Eddystone and iBeacon
 
 ## Usage
 
