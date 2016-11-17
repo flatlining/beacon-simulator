@@ -55,6 +55,13 @@ io.on('connection', function(socket) {
         var bleacon = require('bleacon');
         bleacon.startAdvertising(data.uuid, data.major, data.minor, data.measuredPower);
     });
+
+    socket.on('stop-beacon', function() {
+        console.log('stop-beacon');
+
+        var bleno = require('bleno');
+        bleno.stopAdvertising();
+    });
 });
 
 http.listen(3000, function() {

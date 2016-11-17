@@ -47,6 +47,7 @@
                     </li>
                     <li class="active"><a href="/ibeacon">iBeacon</a></li>
                 </ul>
+                <button id="stop-beacon" type="button" class="btn btn-default navbar-btn">Stop</button>
                 <p class="navbar-text navbar-right">github:<a href="https://github.com/flatlining/rpi-beacon-simulator" class="navbar-link">rpi-beacon-simulator</a></p>
             </div>
         </div>
@@ -112,6 +113,10 @@
                 minor: mi,
                 measuredPower: mp
             });
+            return false;
+        });
+        $('#stop-beacon').click(function() {
+            socket.emit('stop-beacon');
             return false;
         });
     </script>
