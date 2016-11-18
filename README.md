@@ -1,6 +1,6 @@
 # Beacon Simulator
 
-A beacon simulator for the Raspberry Pi that supports Eddystone and iBeacon
+A beacon simulator that supports Eddystone and iBeacon.
 
 ## Usage
 
@@ -16,11 +16,11 @@ To use the beacon simulator:
 ## Build
 
 ```bash
-docker build -t flatlining/rpi-beacon-simulator .
+docker build -t <imageName> .
 ```
 
 ## Run
 
 ```bash
-docker run --net=host -p 3000:3000 --rm flatlining/rpi-beacon-simulator
+docker run --net=host -p 3000:3000 --rm <imageName>
 ```
