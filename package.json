@@ -1,17 +1,17 @@
 {
-    "name": "rpi-beacon-simulator",
-    "version": "0.0.2",
-    "description": "A beacon simulator for the Raspberry Pi that supports Eddystone and iBeacon",
+    "name": "beacon-simulator",
+    "version": "0.0.3",
+    "description": "A beacon simulator that supports Eddystone and iBeacon",
     "author": "Matias Schertel <mschertel@gmail.com> (http://schertel.co/)",
     "license": "GPL-3.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/flatlining/rpi-beacon-simulator.git"
+        "url": "https://github.com/flatlining/beacon-simulator.git"
     },
     "bugs": {
-        "url": "https://github.com/flatlining/rpi-beacon-simulator/issues"
+        "url": "https://github.com/flatlining/beacon-simulator/issues"
     },
-    "homepage": "https://github.com/flatlining/rpi-beacon-simulator#readme",
+    "homepage": "https://github.com/flatlining/beacon-simulator#readme",
     "dependencies": {
         "bleacon": "0.5.1",
         "bootstrap": "3.3.7",

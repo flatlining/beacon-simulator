@@ -1,3 +1,8 @@
+# 0.0.3 / 20161118
+
+- Application is now generic, not related to Raspberry Pi
+- Dockerfile is currently arm7 specific
+
 # 0.0.2 / 20161117
 
 - Better node application, select beacon from a web UI instead of a definition file
