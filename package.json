@@ -1,23 +1,17 @@
 {
-    "name": "beacon-simulator",
-    "version": "0.0.3",
-    "description": "A beacon simulator that supports Eddystone and iBeacon",
-    "author": "Matias Schertel <mschertel@gmail.com> (http://schertel.co/)",
-    "license": "GPL-3.0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/flatlining/beacon-simulator.git"
-    },
-    "bugs": {
-        "url": "https://github.com/flatlining/beacon-simulator/issues"
-    },
-    "homepage": "https://github.com/flatlining/beacon-simulator#readme",
-    "dependencies": {
-        "bleacon": "0.5.1",
-        "bootstrap": "3.3.7",
-        "eddystone-beacon": "1.0.7",
-        "express": "4.14.0",
-        "jquery": "3.1.1",
-        "socket.io": "1.5.1"
-    }
+  "name": "beacon-simulator",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.14.0",
+    "morgan": "~1.7.0",
+    "pug": "~2.0.0-beta6",
+    "serve-favicon": "~2.3.0"
+  }
 }
