@@ -1,5 +1,6 @@
 .dockerignore
 .gitignore
+.editorconfig
 build.sh
 Dockerfile
 run.sh
