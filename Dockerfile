@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN [ "cross-build-start" ]
 
-# Install node
+# Install common build dependencies
 RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
@@ -54,6 +54,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
   && rm -rf /var/lib/apt/lists/* \
   && apt-get clean
 
+# Install node
 # gpg keys listed at https://github.com/nodejs/node
 RUN set -ex \
   && for key in \
@@ -80,7 +81,13 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && rm "node-v$NODE_VERSION-linux-armv6l.tar.gz" SHASUMS256.txt SHASUMS256.txt.asc
 
 # Install bluetooth
-RUN apt-get -y install bluetooth bluez libbluetooth-dev libudev-dev
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+    bluetooth \
+    bluez \
+    libbluetooth-dev \
+    libudev-dev \
+  && rm -rf /var/lib/apt/lists/* \
+  && apt-get clean
 
 # Bluetooth Simulator
 WORKDIR /app/
